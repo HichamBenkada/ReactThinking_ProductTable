@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import products from "./components/data"
+import PRODUCTS from "./components/data"
 import './App.css'
 import FilterableProductTable from './components/FilterableProductTable'
 
@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-    <FilterableProductTable />
+    <FilterableProductTable products = {PRODUCTS}/>
     </>
   )
 }
