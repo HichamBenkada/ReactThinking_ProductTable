@@ -1,11 +1,29 @@
-export default function SearchBar({products}){
-    return (
-        <form action="">
-            <input type="text"  placeholder="Search"/>
-            <br />
-            <label id="check">
-                <input type="checkbox" id="check"/> Only show products in stock 
-            </label>
-        </form>
-    )
+function SearchBar ({ filterText, inStockOnly, onFilterTextChange, onInStockOnlyChange }) {
+  return (
+    <form>
+      <input 
+        type="text" 
+        value={filterText} 
+        placeholder="Search..."
+        onChange={(evt) => {
+          onFilterTextChange(evt.target.value)
+        }} 
+      />
+      <br />
+      <label htmlFor="only-stock">
+        <input 
+          type="checkbox" 
+          id="only-stock" 
+          checked={inStockOnly}
+          onChange={(evt) => {
+            onInStockOnlyChange(evt.target.checked)
+          }}
+        />
+        {" "}
+        Only show products in stock
+      </label>
+    </form>
+  )
 }
+
+export default SearchBar
